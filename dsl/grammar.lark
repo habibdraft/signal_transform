@@ -1,0 +1,15 @@
+start: expr
+
+?expr: expr "&" expr   -> and_expr
+     | expr "|" expr   -> or_expr
+     | expr "==" NUMBER -> eq
+     | "C" "(" expr ")" -> cumsum
+     | "D" "(" expr ")" -> diff
+     | NAME
+     | NUMBER
+     | "(" expr ")"
+
+%import common.CNAME -> NAME
+%import common.NUMBER
+%import common.WS
+%ignore WS
