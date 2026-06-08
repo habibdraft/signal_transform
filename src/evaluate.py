@@ -19,7 +19,7 @@ def evaluate(node, ctx):
         return evaluate(node.left, ctx) == evaluate(node.right, ctx)
 
     if isinstance(node, And):
-        return evaluate(node.left, ctx) & evaluate(node.right, ctx)
+        return evaluate(node.left, ctx) & evaluate(node.right, ctx) # what do we want And to do?
 
     if isinstance(node, Or):
         return evaluate(node.left, ctx) | evaluate(node.right, ctx)
