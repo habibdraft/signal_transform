@@ -1,8 +1,8 @@
 # compiler.py
 
-from expression import Expression
-from evaluator.evaluate import eval_value
-from evaluator.infer_type import infer_type
+from compiler.expression import Expression
+from runtime.interpreter import eval_value
+from semantics.infer_type import infer_type
 
 def compiler(node):
 
