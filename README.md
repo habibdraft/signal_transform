@@ -94,42 +94,6 @@ score(x, y) = mean(x where y > threshold)
 
 ---
 
-## Compilation Pipeline
-
-### Step 1 — Parse DSL
-
-Grammar defined in:
-
-```
-dsl/grammar.lark
-```
-
-Uses Lark to convert source into a parse tree.
-
----
-
-### Step 2 — Build AST
-
-Handled by:
-
-```
-src/transformer.py
-```
-
----
-
-### Step 3 — Evaluate AST
-
-Handled by:
-
-```
-src/evaluate.py
-```
-
-Executes AST nodes using vectorized operations.
-
----
-
 ## AST Design
 
 Core node types:
