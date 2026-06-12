@@ -1,7 +1,7 @@
 # infer_type.py
 
-from semantics.types import DSLType
-from ast.ast_nodes import Signal, Constant, Diff, Cumsum, Eq, And, Or
+from eventql.semantics.types import DSLType
+from eventql.ast.nodes import Signal, Constant, Diff, Cumsum, Eq, And, Or
 
 def infer_type(node):
 

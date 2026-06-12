@@ -1,16 +1,7 @@
 # transformer.py
 
 from lark import Transformer
-
-from ast.ast_nodes import (
-    Signal,
-    Constant,
-    Diff,
-    Cumsum,
-    Eq,
-    And,
-    Or
-)
+from eventql.ast.nodes import Signal, Constant, Diff, Cumsum, Eq, And, Or
 
 
 class ASTBuilder(Transformer):

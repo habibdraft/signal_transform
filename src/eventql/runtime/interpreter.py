@@ -1,7 +1,7 @@
 # interpreter.py
 
 import torch
-from ast.nodes import Signal, Constant, Diff, Cumsum, Eq, And, Or
+from eventql.ast.nodes import Signal, Constant, Diff, Cumsum, Eq, And, Or
 
 def eval_value(node, ctx):
 
