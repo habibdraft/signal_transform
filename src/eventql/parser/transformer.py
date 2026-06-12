@@ -1,7 +1,7 @@
 # transformer.py
 
 from lark import Transformer
-from eventql.ast.nodes import Signal, Constant, Diff, Cumsum, Eq, And, Or
+from eventql.ast.nodes import Signal, Constant, Diff, Cumsum, Eq, Lt, Gt, And, Or
 
 
 class ASTBuilder(Transformer):
@@ -20,6 +20,12 @@ class ASTBuilder(Transformer):
 
     def eq(self, items):
         return Eq(items[0], items[1])
+
+    def lt(self, items):
+        return Lt(items[0], items[1])
+
+    def gt(self, items):
+        return Gt(items[0], items[1])
 
     def and_expr(self, items):
         return And(items[0], items[1])

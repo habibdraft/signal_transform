@@ -1,7 +1,7 @@
 # interpreter.py
 
 import torch
-from eventql.ast.nodes import Signal, Constant, Diff, Cumsum, Eq, And, Or
+from eventql.ast.nodes import Signal, Constant, Diff, Cumsum, Eq, Lt, Gt, And, Or
 
 def eval_value(node, ctx):
 
@@ -19,6 +19,12 @@ def eval_value(node, ctx):
 
     if isinstance(node, Eq):
         return eval_value(node.left, ctx) == eval_value(node.right, ctx)
+
+    if isinstance(node, Lt):
+        return eval_value(node.left, ctx) < eval_value(node.right, ctx)
+
+    if isinstance(node, Gt):
+        return eval_value(node.left, ctx) > eval_value(node.right, ctx)
 
     if isinstance(node, And):
         return eval_value(node.left, ctx) & eval_value(node.right, ctx)

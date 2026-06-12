@@ -37,6 +37,18 @@ class Eq(Node):
 
 
 @dataclass
+class Lt(Node):
+    left: Node
+    right: Node
+
+
+@dataclass
+class Gt(Node):
+    left: Node
+    right: Node
+
+
+@dataclass
 class And(Node):
     left: Node
     right: Node
