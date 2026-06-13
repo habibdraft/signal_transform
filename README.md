@@ -132,26 +132,24 @@ result = y[mask].sum()
 ## Python Usage
 
 ```python
-from lark import Lark
-from src.transformer import DSLTransformer
-from src.evaluate import Evaluator
+import math
+import torch
+import eventql
 
-parser = Lark.open("dsl/grammar.lark", start="start")
+from eventql import ASTBuilder, compiler, parser
+def eval_expr(expr, ctx):
+    compiled = compiler(ASTBuilder().transform(parser.parse(expr)))
+    return compiled.evaluate(ctx)
 
-dsl_code = """
-stable(x) = std(x) < 5
-t(y) = sum(y where stable(x))
-"""
+x = torch.linspace(-math.pi, math.pi, 100)
+y = torch.sin(x)
 
-tree = parser.parse(dsl_code)
-ast = DSLTransformer().transform(tree)
+ctx = {
+    'y': y
+}
 
-result = Evaluator().evaluate(ast, context={
-    "x": x_array,
-    "y": y_array
-})
-
-print(result)
+expr = 'y < 0'
+eval_expr(expr, ctx)
 ```
 
 ---
